@@ -1,0 +1,31 @@
+1. Separate the changes to two groups. increasing and decreasing.
+2. Create continuous lines (like before)
+3. Remove small lines
+4. Find the largest length D s.t. There are at least k vertical lines of size roughly D and at least k horizontal lines of size roughly D.
+5. Filter lines to only of size roughly D
+6. For all horizontal lines of size D consider the left mose point.
+For all vertical lines of size D consider the up most point.
+Take all the points modulo D. All the points in the chess table should be very close (modulo D).
+That way we find two numbers sx, sy, s.t. all points on the table are roughly (sx+qx*D+ex, sy+qy*D+ey)
+where sx,sy,D are constants. qx and qy depend on the line and ex and ey are small numbers (positive or negative) (noise).
+This is another way we can filter false positive lines.
+
+Then we can create an imaginary infinite matrix s.t.
+the origin of the matrix correspond to the the values of the squares rounded to round
+
+consider vertical lines. We map the axis (x) as follows:
+x --> round((x - s1) // D)
+in other words. x = sx+qx*D+ex --> qx
+At the end when we find the qx and qy for the left upper corner of the chess board
+then we transfer it back to (qx * D  + sx).
+
+
+At this point we have a matrix of zeros and ones. Take the 9 x 9 matrix s.t. have maximal number of ones.
+Assume we have an image of size (863, 1600) and a square size = 98
+then the values for x after rounding are in the range (roughly) [0, 1600 / 98] = [0, 16] i.e. 17 values.
+then the values for y after rounding are in the range (roughly) [0, 863 / 98] = [0, 9] i.e. 10 values.
+so we'll have a matrix of size (17, 10) from that matrix we need to find 9x9 matrix with maximal number of ones
+
+
+
+

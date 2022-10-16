@@ -1,0 +1,2 @@
+1. Maybe instead of converting the image from rgb to gray scale to keep the original rgb
+then when comparing two pixels their rgb distance would be more informative than the gray scale distance
